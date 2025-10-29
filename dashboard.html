@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Student Portal</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Custom colors based on user request */
+        :root {
+            --color-dark-blue: #141C52;
+            --color-gold: #8A704C;
+            --color-white: #FFFFFF;
+            /* Using a light blue/gray for the main background to match the visual feel of the original image */
+            --color-light-background: #f0f4f8; 
+            /* Light gray for schedule sections */
+            --color-schedule-bg: #e5e7eb;
+        }
+
+        .bg-dark-blue { background-color: var(--color-dark-blue); }
+        .text-dark-blue { color: var(--color-dark-blue); }
+        .bg-gold { background-color: var(--color-gold); }
+        .text-gold { color: var(--color-gold); }
+        .bg-schedule { background-color: var(--color-schedule-bg); }
+        .bg-light-bg { background-color: var(--color-light-background); }
+
+        /* Custom scrollbar style */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: var(--color-gold);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background-color: var(--color-light-background);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-blue': '#141C52',
+                        'portal-gold': '#8A704C',
+                        'light-bg': '#f0f4f8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-bg font-sans min-h-screen">
+
+    <!-- 1. Top Utility Navigation Bar -->
+    <nav class="bg-dark-blue text-white text-xs py-1 px-4 shadow-md flex justify-between items-center">
+        <!-- Left: Logo/System Name -->
+        <div class="font-bold tracking-wider">BACHELOR OF ACCOUNTANCY (BACC)</div>
+        <!-- Right: Utility Links -->
+        <div class="flex space-x-4">
+            <a href="#" class="hover:text-portal-gold transition duration-200">GLOSSARY</a>
+            <a href="#" class="hover:text-portal-gold transition duration-200"><i class="fas fa-question-circle mr-1"></i>FAQ</a>
+            <a href="#" class="hover:text-portal-gold transition duration-200"><i class="far fa-calendar-alt mr-1"></i>CALENDAR</a>
+            <a href="#" class="hover:text-portal-gold transition duration-200"><i class="fas fa-print mr-1"></i>PRINT</a>
+        </div>
+    </nav>
+
+    <!-- 2. Main Header/Menu Bar -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
+            <!-- Left: Main Logo -->
+            <div class="flex items-center space-x-6">
+                <div class="text-xl font-extrabold text-dark-blue">SMU</div>
+                <div class="text-2xl font-bold text-portal-gold">OASIS</div>
+            </div>
+            
+            <!-- Center: Main Navigation Links -->
+            <div class="flex space-x-1 lg:space-x-4">
+                <!-- Active Link (Gold Background) -->
+                <a href="#" class="flex items-center p-2 rounded-full bg-portal-gold text-white font-semibold text-sm transition duration-200 shadow-md">
+                    <i class="fas fa-briefcase mr-1.5"></i> BOSS
+                </a>
+                <!-- Inactive Links -->
+                <a href="#" class="flex items-center p-2 rounded-full text-dark-blue hover:bg-light-bg font-semibold text-sm transition duration-200">
+                    <i class="fas fa-graduation-cap mr-1.5"></i> ACADEMIC
+                </a>
+                <a href="#" class="flex items-center p-2 rounded-full text-dark-blue hover:bg-light-bg font-semibold text-sm transition duration-200">
+                    <i class="fas fa-dollar-sign mr-1.5"></i> FINANCE & ADMIN
+                </a>
+                <a href="#" class="flex items-center p-2 rounded-full text-dark-blue hover:bg-light-bg font-semibold text-sm transition duration-200">
+                    <i class="fas fa-heartbeat mr-1.5"></i> CAMPUS LIFE & EXCHANGE
+                </a>
+                <a href="#" class="flex items-center p-2 rounded-full text-dark-blue hover:bg-light-bg font-semibold text-sm transition duration-200">
+                    <i class="fas fa-wrench mr-1.5"></i> CAREERS & COMM SERVICE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Main Content Area (Two Columns) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- 3.1 Left Column: Class & Exam Schedule (1/3 width) -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-dark-blue">
+                    <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
+                        <i class="fas fa-clipboard-list mr-2"></i> MY CLASS & EXAM SCHEDULE
+                    </h2>
+
+                    <!-- Filter/Controls -->
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-4 space-y-3 sm:space-y-0">
+                        <div class="text-sm font-semibold text-gray-700">SHOW</div>
+                        <select class="p-2 border border-gray-300 rounded-lg text-sm focus:ring-portal-gold focus:border-portal-gold transition duration-150">
+                            <option>Class Schedules</option>
+                            <option>Exam Schedules</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex items-center justify-between bg-schedule rounded-lg p-2 mb-4 text-sm font-medium border border-gray-300">
+                        <button class="text-dark-blue hover:text-portal-gold font-bold p-1 rounded-md transition duration-150">Prev</button>
+                        <span class="text-dark-blue">27 Oct - 2 Nov 2025</span>
+                        <button class="text-dark-blue hover:text-portal-gold font-bold p-1 rounded-md transition duration-150">Next</button>
+                    </div>
+
+                    <!-- Schedule Items (Scrollable) -->
+                    <div class="space-y-3 max-h-[60vh] lg:max-h-[70vh] custom-scrollbar overflow-y-auto pr-2">
+                        <!-- Schedule Item 1 (Ethics and Social Responsibility for Accounting) -->
+                        <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-portal-gold">
+                            <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
+                            <div class="flex">
+                                <div class="w-1/4 text-center">
+                                    <div class="text-xl font-bold text-dark-blue">MON</div>
+                                    <div class="text-sm text-dark-blue">27 OCT</div>
+                                </div>
+                                <div class="w-3/4 pl-4 border-l border-gray-400">
+                                    <p class="font-bold text-base text-dark-blue">1:45PM - 3:15PM</p>
+                                    <p class="text-portal-gold font-semibold">Ethics and Social Responsibility for Accounting</p>
+                                    <p class="text-xs text-gray-600">SOA Seminar Room 3-3</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 2 (Accounting Information Systems) -->
+                        <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
+                            <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
+                            <div class="flex">
+                                <div class="w-1/4 text-center">
+                                    <div class="text-xl font-bold text-dark-blue">WED</div>
+                                    <div class="text-sm text-dark-blue">29 OCT</div>
+                                </div>
+                                <div class="w-3/4 pl-4 border-l border-gray-400">
+                                    <p class="font-bold text-base text-dark-blue">8:15AM - 11:30AM</p>
+                                    <p class="text-portal-gold font-semibold">Accounting Information Systems</p>
+                                    <p class="text-xs text-gray-600">SCIS1 Seminar Room B1-1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 3 (Spanish - Retained) -->
+                        <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
+                            <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
+                            <div class="flex">
+                                <div class="w-1/4 text-center">
+                                    <div class="text-xl font-bold text-dark-blue">WED</div>
+                                    <div class="text-sm text-dark-blue">29 OCT</div>
+                                </div>
+                                <div class="w-3/4 pl-4 border-l border-gray-400">
+                                    <p class="font-bold text-base text-dark-blue">1:45PM - 3:15PM</p>
+                                    <p class="text-portal-gold font-semibold">Spanish</p>
+                                    <p class="text-xs text-gray-600">YPHSL Seminar Room 2-04</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Schedule Item 4 (Financial Markets and Investments) -->
+                        <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
+                            <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
+                            <div class="flex">
+                                <div class="w-1/4 text-center">
+                                    <div class="text-xl font-bold text-dark-blue">FRI</div>
+                                    <div class="text-sm text-dark-blue">31 OCT</div>
+                                </div>
+                                <div class="w-3/4 pl-4 border-l border-gray-400">
+                                    <p class="font-bold text-base text-dark-blue">3:30PM - 6:45PM</p>
+                                    <p class="text-portal-gold font-semibold">Financial Markets and Investments</p>
+                                    <p class="text-xs text-gray-600">SOA Seminar Room 5-3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Announcements/Footer area in the original image -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-portal-gold">
+                    <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
+                        <i class="fas fa-bullhorn mr-2"></i> ANNOUNCEMENTS
+                    </h2>
+                    <p class="text-gray-600 text-sm">No new announcements this week.</p>
+                </div>
+            </div>
+
+            <!-- 3.2 Right Column: Apps and Forms (2/3 width) -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-portal-gold">
+                    <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
+                        <i class="fas fa-th-large mr-2"></i> APPS AND FORMS
+                    </h2>
+
+                    <!-- Tab Navigation -->
+                    <div class="flex border-b border-gray-300 mb-4">
+                        <button class="py-2 px-6 text-sm font-semibold bg-portal-gold text-white rounded-t-lg transition duration-150">
+                            My Faves
+                        </button>
+                        <button class="py-2 px-6 text-sm font-semibold text-dark-blue border-b-2 border-transparent hover:border-portal-gold transition duration-150">
+                            All Apps
+                        </button>
+                        <button class="py-2 px-6 text-sm font-semibold text-dark-blue border-b-2 border-transparent hover:border-portal-gold transition duration-150">
+                            All Forms
+                        </button>
+                        <button class="py-2 px-6 text-sm font-semibold text-dark-blue border-b-2 border-transparent hover:border-portal-gold transition duration-150">
+                            All Policies
+                        </button>
+                    </div>
+
+                    <!-- Search Bar and Chatbot Icon -->
+                    <div class="relative mb-6 flex items-center space-x-3">
+                        <div class="relative w-full">
+                            <input type="search" placeholder="Search..." class="w-full p-3 pl-10 border border-gray-300 rounded-xl focus:ring-dark-blue focus:border-dark-blue transition duration-150">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        
+                        <!-- Chatbot Icon (as requested in the initial query, kept here beside search) -->
+                        <button class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200" title="Start Chat">
+                            <i class="fas fa-comment-dots text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Fav Apps Grid -->
+                    <h3 class="text-lg font-semibold text-dark-blue mb-3">Fav Apps</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- App Card 1 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#a339b0]">
+                            <i class="fas fa-hammer text-2xl mr-4 text-[#a339b0]"></i>
+                            <span class="font-medium text-dark-blue">BOSS Bidding</span>
+                        </a>
+                        <!-- App Card 2 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#24619d]">
+                            <i class="fas fa-calculator text-2xl mr-4 text-[#24619d]"></i>
+                            <span class="font-medium text-dark-blue">Curriculum Worksheet & GPA Calculator</span>
+                        </a>
+                        <!-- App Card 3 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#32b265]">
+                            <i class="fas fa-book-open text-2xl mr-4 text-[#32b265]"></i>
+                            <span class="font-medium text-dark-blue">eLearn</span>
+                        </a>
+                        <!-- App Card 4 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#f05a2e]">
+                            <i class="fas fa-building text-2xl mr-4 text-[#f05a2e]"></i>
+                            <span class="font-medium text-dark-blue">Facility Booking</span>
+                        </a>
+                        <!-- App Card 5 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#169a9d]">
+                            <i class="fas fa-map-marker-alt text-2xl mr-4 text-[#169a9d]"></i>
+                            <span class="font-medium text-dark-blue">OnTRAC II</span>
+                        </a>
+                        <!-- App Card 6 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#5249af]">
+                            <i class="fas fa-user text-2xl mr-4 text-[#5249af]"></i>
+                            <span class="font-medium text-dark-blue">Update Personal Data</span>
+                        </a>
+                         <!-- App Card 7 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#0e7490]">
+                            <i class="fas fa-chart-line text-2xl mr-4 text-[#0e7490]"></i>
+                            <span class="font-medium text-dark-blue">Degree Progress Report</span>
+                        </a>
+                        <!-- App Card 8 -->
+                        <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#8A704C]">
+                            <i class="fas fa-credit-card text-2xl mr-4 text-[#8A704C]"></i>
+                            <span class="font-medium text-dark-blue">Fee Payment</span>
+                        </a>
+                    </div>
+
+                    <!-- Fav Forms Section -->
+                    <h3 class="text-lg font-semibold text-dark-blue mt-8 mb-3">Fav Forms</h3>
+                    <div class="p-4 bg-schedule rounded-xl text-gray-600 text-sm italic">
+                        No items to show.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
