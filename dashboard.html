@@ -237,9 +237,23 @@
                         </div>
                         
                         <!-- Chatbot Icon (as requested in the initial query, kept here beside search) -->
-                        <button class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200" title="Start Chat">
+                        <button id="chatbot-trigger" class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200" title="Start Chat">
                             <i class="fas fa-comment-dots text-xl"></i>
                         </button>
+                        <!-- <df-messenger
+                        location="us-central1"
+                        project-id="chabot-project-474504"
+                        agent-id="d2d35358-19c4-407d-819d-85d820fde224"
+                        language-code="en"
+                        max-query-length="-1"
+                        class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200"
+                        >
+                        <df-messenger-chat-bubble
+                            chat-title="SMU-UNIFY">
+                        </df-messenger-chat-bubble>
+                        </df-messenger> -->
+                        
+
                     </div>
 
                     <!-- Fav Apps Grid -->
@@ -296,6 +310,45 @@
             </div>
         </div>
     </main>
-
-</body>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+    location="us-central1"
+    project-id="chabot-project-474504"
+    agent-id="d2d35358-19c4-407d-819d-85d820fde224"
+    language-code="en"
+    max-query-length="-1">
+    <df-messenger-chat-bubble
+        chat-title="SMU-UNIFY">
+    </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+    df-messenger {
+        z-index: 999;
+        position: fixed;
+        display: block;
+        --df-messenger-font-color: #000;
+        --df-messenger-font-family: Google Sans;
+        --df-messenger-chat-background: #8A704C;
+        --df-messenger-message-user-background: #d3e3fd;
+        --df-messenger-message-bot-background: #FFFFFF;
+        bottom: 16px;
+        right: 16px;
+        --df-messenger-button-display: none;
+    }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const triggerButton = document.getElementById('chatbot-trigger');
+        const dfMessenger = document.querySelector('df-messenger');
+        
+        if (triggerButton && dfMessenger) {
+            triggerButton.addEventListener('click', () => {
+                // This line opens the chat panel
+                dfMessenger.setAttribute('expand', 'true');
+            });
+        }
+    });
+    </script>
+    </body>
 </html>
