@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student Portal</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
     <style>
         /* Custom colors based on user request */
         :root {
@@ -37,8 +38,6 @@
         .custom-scrollbar::-webkit-scrollbar-track {
             background-color: var(--color-light-background);
         }
-        
-        /* NOTE: The old custom df-messenger styles are removed from here */
     </style>
     <script>
         tailwind.config = {
@@ -59,8 +58,11 @@
 </head>
 <body class="bg-light-bg font-sans min-h-screen">
 
+    <!-- 1. Top Utility Navigation Bar -->
     <nav class="bg-dark-blue text-white text-xs py-1 px-4 shadow-md flex justify-between items-center">
+        <!-- Left: Logo/System Name -->
         <div class="font-bold tracking-wider">BACHELOR OF ACCOUNTANCY (BACC)</div>
+        <!-- Right: Utility Links -->
         <div class="flex space-x-4">
             <a href="#" class="hover:text-portal-gold transition duration-200">GLOSSARY</a>
             <a href="#" class="hover:text-portal-gold transition duration-200"><i class="fas fa-question-circle mr-1"></i>FAQ</a>
@@ -69,17 +71,22 @@
         </div>
     </nav>
 
+    <!-- 2. Main Header/Menu Bar -->
     <header class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
+            <!-- Left: Main Logo -->
             <div class="flex items-center space-x-6">
                 <div class="text-xl font-extrabold text-dark-blue">SMU</div>
                 <div class="text-2xl font-bold text-portal-gold">OASIS</div>
             </div>
             
+            <!-- Center: Main Navigation Links -->
             <div class="flex space-x-1 lg:space-x-4">
+                <!-- Active Link (Gold Background) -->
                 <a href="#" class="flex items-center p-2 rounded-full bg-portal-gold text-white font-semibold text-sm transition duration-200 shadow-md">
                     <i class="fas fa-briefcase mr-1.5"></i> BOSS
                 </a>
+                <!-- Inactive Links -->
                 <a href="#" class="flex items-center p-2 rounded-full text-dark-blue hover:bg-light-bg font-semibold text-sm transition duration-200">
                     <i class="fas fa-graduation-cap mr-1.5"></i> ACADEMIC
                 </a>
@@ -96,15 +103,18 @@
         </div>
     </header>
 
+    <!-- 3. Main Content Area (Two Columns) -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
+            <!-- 3.1 Left Column: Class & Exam Schedule (1/3 width) -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-dark-blue">
                     <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
                         <i class="fas fa-clipboard-list mr-2"></i> MY CLASS & EXAM SCHEDULE
                     </h2>
 
+                    <!-- Filter/Controls -->
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-4 space-y-3 sm:space-y-0">
                         <div class="text-sm font-semibold text-gray-700">SHOW</div>
                         <select class="p-2 border border-gray-300 rounded-lg text-sm focus:ring-portal-gold focus:border-portal-gold transition duration-150">
@@ -119,7 +129,9 @@
                         <button class="text-dark-blue hover:text-portal-gold font-bold p-1 rounded-md transition duration-150">Next</button>
                     </div>
 
+                    <!-- Schedule Items (Scrollable) -->
                     <div class="space-y-3 max-h-[60vh] lg:max-h-[70vh] custom-scrollbar overflow-y-auto pr-2">
+                        <!-- Schedule Item 1 (Ethics and Social Responsibility for Accounting) -->
                         <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-portal-gold">
                             <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
                             <div class="flex">
@@ -135,6 +147,7 @@
                             </div>
                         </div>
 
+                        <!-- Schedule Item 2 (Accounting Information Systems) -->
                         <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
                             <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
                             <div class="flex">
@@ -150,6 +163,7 @@
                             </div>
                         </div>
 
+                        <!-- Schedule Item 3 (Spanish - Retained) -->
                         <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
                             <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
                             <div class="flex">
@@ -165,6 +179,7 @@
                             </div>
                         </div>
                         
+                        <!-- Schedule Item 4 (Financial Markets and Investments) -->
                         <div class="bg-schedule p-3 rounded-lg shadow-md border-l-4 border-dark-blue/20">
                             <div class="text-xs font-semibold text-dark-blue uppercase mb-1">CLASS</div>
                             <div class="flex">
@@ -182,6 +197,7 @@
                     </div>
                 </div>
 
+                <!-- Placeholder for Announcements/Footer area in the original image -->
                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-portal-gold">
                     <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
                         <i class="fas fa-bullhorn mr-2"></i> ANNOUNCEMENTS
@@ -190,12 +206,14 @@
                 </div>
             </div>
 
+            <!-- 3.2 Right Column: Apps and Forms (2/3 width) -->
             <div class="lg:col-span-2 space-y-6">
                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-portal-gold">
                     <h2 class="text-lg font-bold text-dark-blue mb-4 flex items-center">
                         <i class="fas fa-th-large mr-2"></i> APPS AND FORMS
                     </h2>
 
+                    <!-- Tab Navigation -->
                     <div class="flex border-b border-gray-300 mb-4">
                         <button class="py-2 px-6 text-sm font-semibold bg-portal-gold text-white rounded-t-lg transition duration-150">
                             My Faves
@@ -211,50 +229,79 @@
                         </button>
                     </div>
 
-                    <div class="relative mb-6">
+                    <!-- Search Bar and Chatbot Icon -->
+                    <div class="relative mb-6 flex items-center space-x-3">
                         <div class="relative w-full">
                             <input type="search" placeholder="Search..." class="w-full p-3 pl-10 border border-gray-300 rounded-xl focus:ring-dark-blue focus:border-dark-blue transition duration-150">
                             <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         </div>
                         
-                        </div>
+                        <!-- Chatbot Icon (as requested in the initial query, kept here beside search) -->
+                        <button id="chatbot-trigger" class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200" title="Start Chat">
+                            <i class="fas fa-comment-dots text-xl"></i>
+                        </button>
+                        <!-- <df-messenger
+                        location="us-central1"
+                        project-id="chabot-project-474504"
+                        agent-id="d2d35358-19c4-407d-819d-85d820fde224"
+                        language-code="en"
+                        max-query-length="-1"
+                        class="p-3 bg-dark-blue text-white rounded-xl shadow-md hover:bg-portal-gold transition duration-200"
+                        >
+                        <df-messenger-chat-bubble
+                            chat-title="SMU-UNIFY">
+                        </df-messenger-chat-bubble>
+                        </df-messenger> -->
+                        
 
+                    </div>
+
+                    <!-- Fav Apps Grid -->
                     <h3 class="text-lg font-semibold text-dark-blue mb-3">Fav Apps</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- App Card 1 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#a339b0]">
                             <i class="fas fa-hammer text-2xl mr-4 text-[#a339b0]"></i>
                             <span class="font-medium text-dark-blue">BOSS Bidding</span>
                         </a>
+                        <!-- App Card 2 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#24619d]">
                             <i class="fas fa-calculator text-2xl mr-4 text-[#24619d]"></i>
                             <span class="font-medium text-dark-blue">Curriculum Worksheet & GPA Calculator</span>
                         </a>
+                        <!-- App Card 3 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#32b265]">
                             <i class="fas fa-book-open text-2xl mr-4 text-[#32b265]"></i>
                             <span class="font-medium text-dark-blue">eLearn</span>
                         </a>
+                        <!-- App Card 4 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#f05a2e]">
                             <i class="fas fa-building text-2xl mr-4 text-[#f05a2e]"></i>
                             <span class="font-medium text-dark-blue">Facility Booking</span>
                         </a>
+                        <!-- App Card 5 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#169a9d]">
                             <i class="fas fa-map-marker-alt text-2xl mr-4 text-[#169a9d]"></i>
                             <span class="font-medium text-dark-blue">OnTRAC II</span>
                         </a>
+                        <!-- App Card 6 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#5249af]">
                             <i class="fas fa-user text-2xl mr-4 text-[#5249af]"></i>
                             <span class="font-medium text-dark-blue">Update Personal Data</span>
                         </a>
+                         <!-- App Card 7 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#0e7490]">
                             <i class="fas fa-chart-line text-2xl mr-4 text-[#0e7490]"></i>
                             <span class="font-medium text-dark-blue">Degree Progress Report</span>
                         </a>
+                        <!-- App Card 8 -->
                         <a href="#" class="flex items-center p-4 bg-schedule rounded-xl shadow-md hover:shadow-lg transition duration-200 border-l-4 border-[#8A704C]">
                             <i class="fas fa-credit-card text-2xl mr-4 text-[#8A704C]"></i>
                             <span class="font-medium text-dark-blue">Fee Payment</span>
                         </a>
                     </div>
 
+                    <!-- Fav Forms Section -->
                     <h3 class="text-lg font-semibold text-dark-blue mt-8 mb-3">Fav Forms</h3>
                     <div class="p-4 bg-schedule rounded-xl text-gray-600 text-sm italic">
                         No items to show.
@@ -280,7 +327,6 @@
         z-index: 999;
         position: fixed;
         display: block;
-        /* NOTE: Default styles for the messenger button are used since your custom button was removed */
         --df-messenger-font-color: #000;
         --df-messenger-font-family: Google Sans;
         --df-messenger-chat-background: #8A704C;
@@ -288,7 +334,21 @@
         --df-messenger-message-bot-background: #FFFFFF;
         bottom: 16px;
         right: 16px;
+        --df-messenger-button-display: none;
     }
     </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const triggerButton = document.getElementById('chatbot-trigger');
+        const dfMessenger = document.querySelector('df-messenger');
+        
+        if (triggerButton && dfMessenger) {
+            triggerButton.addEventListener('click', () => {
+                // This line opens the chat panel
+                dfMessenger.setAttribute('expand', 'true');
+            });
+        }
+    });
+    </script>
     </body>
 </html>
